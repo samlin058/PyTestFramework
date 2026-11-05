@@ -1,0 +1,30 @@
+controller: UserController
+apis:
+  - name: login
+    method: POST
+    url: /api/login
+    headers:
+      Content-Type: application/json
+      x-api-key: reqres-free-v1
+    body:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+
+  - name: createUser
+    method: POST
+    url: /api/users
+    headers:
+      Content-Type: application/json
+      x-api-key: reqres-free-v1
+      
+  - name: getUser
+    method: GET
+    url: /api/users/{id}
+    headers:
+      x-api-key: reqres-free-v1

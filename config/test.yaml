@@ -1,0 +1,17 @@
+env: test
+base_url: https://reqres.in
+timeout: 10
+ui:
+  base_url: ""
+  headless: true
+  default_timeout: 10
+  navigation_timeout: 30
+db:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: ""
+  database: testdb
+notify:
+  webhook: ""

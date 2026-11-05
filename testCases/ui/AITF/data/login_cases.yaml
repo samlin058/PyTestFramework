@@ -1,0 +1,9 @@
+cases:
+  - name: ui_login_success
+    username: admin
+    password: admin123
+    expect_success: true
+  - name: ui_login_fail
+    username: admin
+    password: wrong
+    expect_success: false
