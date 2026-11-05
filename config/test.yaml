@@ -1,0 +1,24 @@
+env: test
+defaults:
+  timeout: 10
+  ui:
+    headless: false
+    default_timeout: 10
+    navigation_timeout: 30
+notify:
+  webhook: ""
+projects:
+  AITF:
+    api_base_url: http://127.0.0.1:8000/
+    ui:
+      base_url: http://127.0.0.1:5173/
+    db:
+      enabled: false
+      host: 127.0.0.1
+      port: 3306
+      user: root
+      password: ""
+      database: aitf
+    global_var:
+      user: admin
+      password: 123456

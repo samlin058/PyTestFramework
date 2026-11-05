@@ -1,0 +1,21 @@
+env: prod
+defaults:
+  timeout: 15
+  ui:
+    headless: true
+    default_timeout: 10
+    navigation_timeout: 30
+notify:
+  webhook: ""
+projects:
+  AITF:
+    api_base_url: https://reqres.in
+    ui:
+      base_url: ""
+    db:
+      enabled: false
+      host: 127.0.0.1
+      port: 3306
+      user: root
+      password: ""
+      database: aitf
