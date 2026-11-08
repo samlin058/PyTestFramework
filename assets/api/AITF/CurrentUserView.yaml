@@ -1,0 +1,7 @@
+controller: CurrentUserView
+apis:
+  - name: get
+    method: GET
+    url: /api/auth/me/
+    headers:
+      Authorization:

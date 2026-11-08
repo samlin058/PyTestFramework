@@ -1,0 +1,54 @@
+controller: JenkinsWebhookView
+apis:
+  - name: post
+    method: POST
+    url: /api/integrations/jenkins/webhook/
+    headers:
+      Content-Type: application/json
+    body:
+      type: object
+      properties:
+        execution_record_id:
+          type: integer
+          default:
+          description: 执行记录 ID
+        AITF_EXECUTION_RECORD_ID:
+          type: integer
+          default:
+          description: 执行记录 ID 别名
+        event_type:
+          type: string
+          default:
+          description: 事件类型
+        status:
+          type: string
+          default:
+          description: 状态，可作 event_type 回退
+        job_name:
+          type: string
+          default:
+          description: Jenkins Job 名称
+        name:
+          type: string
+          default:
+          description: Job 名称别名
+        build_number:
+          type: integer
+          default:
+          description: 构建号
+        build_url:
+          type: string
+          default:
+          description: 构建 URL
+        report_url:
+          type: string
+          default:
+          description: 报告 URL
+        report_path:
+          type: string
+          default:
+          description: 报告路径
+        summary:
+          type: object
+          default:
+          description: 结果摘要

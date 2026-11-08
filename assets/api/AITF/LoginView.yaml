@@ -1,0 +1,18 @@
+controller: LoginView
+apis:
+  - name: post
+    method: POST
+    url: /api/auth/login/
+    headers:
+      Content-Type: application/json
+    body:
+      type: object
+      properties:
+        account:
+          type: string
+          default: admin
+          description: 登录账号
+        password:
+          type: string
+          default: 123456
+          description: 登录密码

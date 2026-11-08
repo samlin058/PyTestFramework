@@ -1,0 +1,132 @@
+controller: DocumentViewSet
+apis:
+  - name: list
+    method: GET
+    url: /api/documents/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: create
+    method: POST
+    url: /api/documents/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+
+  - name: retrieve
+    method: GET
+    url: /api/documents/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: update
+    method: PUT
+    url: /api/documents/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+
+  - name: partial_update
+    method: PATCH
+    url: /api/documents/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+
+  - name: destroy
+    method: DELETE
+    url: /api/documents/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: get_content
+    method: GET
+    url: /api/documents/{id}/content/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: update_content
+    method: PUT
+    url: /api/documents/{id}/content/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        content:
+          type: string
+          default:
+          description: 文档文本内容
+
+  - name: download
+    method: GET
+    url: /api/documents/{id}/download/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: preview
+    method: GET
+    url: /api/documents/{id}/preview/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: render_status
+    method: GET
+    url: /api/documents/{id}/render-status/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: render_preview
+    method: POST
+    url: /api/documents/{id}/render-preview/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: upload
+    method: POST
+    url: /api/documents/{id}/upload/
+    headers:
+      Authorization:
+      Content-Type: multipart/form-data
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        file:
+          type: file
+          default:
+          description: 替换文档的上传文件
+
+  - name: revisions
+    method: GET
+    url: /api/documents/{id}/revisions/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: revision_content
+    method: GET
+    url: /api/documents/{id}/revisions/{revision_no}/content/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: revision_download
+    method: GET
+    url: /api/documents/{id}/revisions/{revision_no}/download/
+    headers:
+      Authorization:
+      X-Project-Code:

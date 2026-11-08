@@ -1,0 +1,264 @@
+controller: ExecutionPlanViewSet
+apis:
+  - name: list
+    method: GET
+    url: /api/execution-plans/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: create
+    method: POST
+    url: /api/execution-plans/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        environment:
+          type: integer
+          default:
+          description: 环境 ID
+        name:
+          type: string
+          default:
+          description: 执行计划名称
+        plan_type:
+          type: string
+          default:
+          description: 计划类型，枚举 api/ui/mixed
+        jenkins_job_name:
+          type: string
+          default:
+          description: Jenkins Job 名称
+        case_dir:
+          type: string
+          default:
+          description: 用例目录
+        case_tags:
+          type: array
+          default: []
+          description: 用例标签
+        pytest_args:
+          type: array
+          default: []
+          description: pytest 参数
+        is_active:
+          type: boolean
+          default: true
+          description: 是否启用
+        script_ids:
+          type: array
+          default:
+          description: 关联脚本 ID 列表
+        schedule:
+          type: object
+          default:
+          description: 内联调度配置
+          properties:
+            enabled:
+              type: boolean
+              default: false
+              description:
+            name:
+              type: string
+              default:
+              description:
+            schedule_type:
+              type: string
+              default: cron
+              description: 枚举 cron/interval
+            cron_expression:
+              type: string
+              default:
+              description:
+            interval_seconds:
+              type: integer
+              default:
+              description: 最小值为 1
+            is_active:
+              type: boolean
+              default: true
+              description:
+
+  - name: retrieve
+    method: GET
+    url: /api/execution-plans/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: update
+    method: PUT
+    url: /api/execution-plans/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        environment:
+          type: integer
+          default:
+          description: 环境 ID
+        name:
+          type: string
+          default:
+          description: 执行计划名称
+        plan_type:
+          type: string
+          default:
+          description: 计划类型，枚举 api/ui/mixed
+        jenkins_job_name:
+          type: string
+          default:
+          description: Jenkins Job 名称
+        case_dir:
+          type: string
+          default:
+          description: 用例目录
+        case_tags:
+          type: array
+          default: []
+          description: 用例标签
+        pytest_args:
+          type: array
+          default: []
+          description: pytest 参数
+        is_active:
+          type: boolean
+          default: true
+          description: 是否启用
+        script_ids:
+          type: array
+          default:
+          description: 关联脚本 ID 列表
+        schedule:
+          type: object
+          default:
+          description: 内联调度配置
+          properties:
+            enabled:
+              type: boolean
+              default: false
+              description:
+            name:
+              type: string
+              default:
+              description:
+            schedule_type:
+              type: string
+              default: cron
+              description: 枚举 cron/interval
+            cron_expression:
+              type: string
+              default:
+              description:
+            interval_seconds:
+              type: integer
+              default:
+              description: 最小值为 1
+            is_active:
+              type: boolean
+              default: true
+              description:
+
+  - name: partial_update
+    method: PATCH
+    url: /api/execution-plans/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        environment:
+          type: integer
+          default:
+          description: 环境 ID
+        name:
+          type: string
+          default:
+          description: 执行计划名称
+        plan_type:
+          type: string
+          default:
+          description: 计划类型，枚举 api/ui/mixed
+        jenkins_job_name:
+          type: string
+          default:
+          description: Jenkins Job 名称
+        case_dir:
+          type: string
+          default:
+          description: 用例目录
+        case_tags:
+          type: array
+          default: []
+          description: 用例标签
+        pytest_args:
+          type: array
+          default: []
+          description: pytest 参数
+        is_active:
+          type: boolean
+          default: true
+          description: 是否启用
+        script_ids:
+          type: array
+          default:
+          description: 关联脚本 ID 列表
+        schedule:
+          type: object
+          default:
+          description: 内联调度配置
+          properties:
+            enabled:
+              type: boolean
+              default: false
+              description:
+            name:
+              type: string
+              default:
+              description:
+            schedule_type:
+              type: string
+              default: cron
+              description: 枚举 cron/interval
+            cron_expression:
+              type: string
+              default:
+              description:
+            interval_seconds:
+              type: integer
+              default:
+              description: 最小值为 1
+            is_active:
+              type: boolean
+              default: true
+              description:
+
+  - name: destroy
+    method: DELETE
+    url: /api/execution-plans/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: trigger
+    method: POST
+    url: /api/execution-plans/{id}/trigger/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: records
+    method: GET
+    url: /api/execution-plans/{id}/records/
+    headers:
+      Authorization:
+      X-Project-Code:

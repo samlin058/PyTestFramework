@@ -1,0 +1,15 @@
+controller: ExecutionRecordViewSet
+apis:
+  - name: list
+    method: GET
+    url: /api/execution-records/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: retrieve
+    method: GET
+    url: /api/execution-records/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:

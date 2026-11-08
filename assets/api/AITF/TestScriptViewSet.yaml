@@ -1,0 +1,46 @@
+controller: TestScriptViewSet
+apis:
+  - name: list
+    method: GET
+    url: /api/scripts/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: create
+    method: POST
+    url: /api/scripts/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+
+  - name: retrieve
+    method: GET
+    url: /api/scripts/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: update
+    method: PUT
+    url: /api/scripts/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+
+  - name: partial_update
+    method: PATCH
+    url: /api/scripts/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+
+  - name: destroy
+    method: DELETE
+    url: /api/scripts/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:

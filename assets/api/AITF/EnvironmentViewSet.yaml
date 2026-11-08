@@ -1,0 +1,115 @@
+controller: EnvironmentViewSet
+apis:
+  - name: list
+    method: GET
+    url: /api/environments/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: create
+    method: POST
+    url: /api/environments/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        name:
+          type: string
+          default:
+          description: 环境名称
+        config_path:
+          type: string
+          default:
+          description: 配置路径
+        base_url:
+          type: string
+          default:
+          description: 环境基础 URL
+        variables:
+          type: object
+          default: {}
+          description: 环境变量
+        is_active:
+          type: boolean
+          default: true
+          description: 是否启用
+
+  - name: retrieve
+    method: GET
+    url: /api/environments/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:
+
+  - name: update
+    method: PUT
+    url: /api/environments/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        name:
+          type: string
+          default:
+          description: 环境名称
+        config_path:
+          type: string
+          default:
+          description: 配置路径
+        base_url:
+          type: string
+          default:
+          description: 环境基础 URL
+        variables:
+          type: object
+          default: {}
+          description: 环境变量
+        is_active:
+          type: boolean
+          default: true
+          description: 是否启用
+
+  - name: partial_update
+    method: PATCH
+    url: /api/environments/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+      X-Project-Code:
+    body:
+      type: object
+      properties:
+        name:
+          type: string
+          default:
+          description: 环境名称
+        config_path:
+          type: string
+          default:
+          description: 配置路径
+        base_url:
+          type: string
+          default:
+          description: 环境基础 URL
+        variables:
+          type: object
+          default: {}
+          description: 环境变量
+        is_active:
+          type: boolean
+          default: true
+          description: 是否启用
+
+  - name: destroy
+    method: DELETE
+    url: /api/environments/{id}/
+    headers:
+      Authorization:
+      X-Project-Code:

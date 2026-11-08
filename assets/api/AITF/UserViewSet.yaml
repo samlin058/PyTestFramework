@@ -1,0 +1,121 @@
+controller: UserViewSet
+apis:
+  - name: list
+    method: GET
+    url: /api/users/
+    headers:
+      Authorization:
+
+  - name: create
+    method: POST
+    url: /api/users/
+    headers:
+      Authorization:
+      Content-Type: application/json
+    body:
+      type: object
+      properties:
+        account:
+          type: string
+          default:
+          description: 账号，英文字母开头，仅支持字母数字下划线
+        username:
+          type: string
+          default:
+          description:
+        email:
+          type: string
+          default:
+          description:
+        password:
+          type: string
+          default:
+          description: 密码，最少6位
+        is_staff:
+          type: boolean
+          default:
+          description:
+        is_active:
+          type: boolean
+          default:
+          description:
+
+  - name: retrieve
+    method: GET
+    url: /api/users/{id}/
+    headers:
+      Authorization:
+
+  - name: update
+    method: PUT
+    url: /api/users/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+    body:
+      type: object
+      properties:
+        account:
+          type: string
+          default:
+          description: 账号，英文字母开头，仅支持字母数字下划线
+        username:
+          type: string
+          default:
+          description:
+        email:
+          type: string
+          default:
+          description:
+        is_staff:
+          type: boolean
+          default:
+          description:
+        is_active:
+          type: boolean
+          default:
+          description:
+        password:
+          type: string
+          default:
+          description: 密码，最少6位，可空
+
+  - name: partial_update
+    method: PATCH
+    url: /api/users/{id}/
+    headers:
+      Authorization:
+      Content-Type: application/json
+    body:
+      type: object
+      properties:
+        account:
+          type: string
+          default:
+          description: 账号，英文字母开头，仅支持字母数字下划线
+        username:
+          type: string
+          default:
+          description:
+        email:
+          type: string
+          default:
+          description:
+        is_staff:
+          type: boolean
+          default:
+          description:
+        is_active:
+          type: boolean
+          default:
+          description:
+        password:
+          type: string
+          default:
+          description: 密码，最少6位，可空
+
+  - name: destroy
+    method: DELETE
+    url: /api/users/{id}/
+    headers:
+      Authorization:
