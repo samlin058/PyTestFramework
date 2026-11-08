@@ -1,0 +1,6 @@
+# scanned from http://127.0.0.1:5173/login
+account: "#account"
+password: "#password"
+show_password: "[aria-label='Show']"
+submit: "button[type='submit']"
+message: ".ant-message"

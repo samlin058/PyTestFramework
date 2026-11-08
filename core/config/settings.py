@@ -39,6 +39,14 @@ def _deep_merge(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any
     return result
 
 
+def _env_flag(name: str) -> bool | None:
+    """解析布尔环境变量；未设置返回 None。"""
+    raw = os.getenv(name)
+    if raw is None:
+        return None
+    return raw.strip().lower() in {"1", "true", "yes"}
+
+
 def _apply_project_env_overrides(project_cfg: dict[str, Any]) -> None:
     """将命令行/系统环境变量覆盖到单个项目配置。"""
     if os.getenv("API_BASE_URL"):
@@ -57,15 +65,18 @@ def _apply_project_env_overrides(project_cfg: dict[str, Any]) -> None:
     ui = project_cfg.setdefault("ui", {})
     if os.getenv("UI_BASE_URL"):
         ui["base_url"] = os.getenv("UI_BASE_URL")
-    if os.getenv("UI_HEADLESS"):
-        ui["headless"] = os.getenv("UI_HEADLESS", "true").lower() in {"1", "true", "yes"}
 
 
 def _apply_env_overrides(cfg: dict[str, Any]) -> dict[str, Any]:
-    """用环境变量覆盖 notify，以及指定/全部项目的 api_base_url、db、ui。"""
+    """用环境变量覆盖 notify、defaults.ui.headless，以及指定/全部项目的 api_base_url、db、ui。"""
     notify = cfg.setdefault("notify", {})
     if os.getenv("NOTIFY_WEBHOOK"):
         notify["webhook"] = os.getenv("NOTIFY_WEBHOOK")
+
+    defaults_ui = cfg.setdefault("defaults", {}).setdefault("ui", {})
+    headless = _env_flag("UI_HEADLESS")
+    if headless is not None:
+        defaults_ui["headless"] = headless
 
     projects = cfg.setdefault("projects", {})
     target = (os.getenv("PROJECT") or "").strip()

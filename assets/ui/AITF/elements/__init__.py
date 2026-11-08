@@ -1,1 +1,0 @@
-"""Optional shared locator definitions."""

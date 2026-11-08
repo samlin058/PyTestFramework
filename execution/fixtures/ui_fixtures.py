@@ -31,7 +31,10 @@ def playwright_instance() -> Playwright:
 def browser(playwright_instance: Playwright) -> Browser:
     """按 defaults.ui.headless 启动 Chromium。"""
     cfg = (get_config().get("defaults") or {}).get("ui") or {}
-    browser = playwright_instance.chromium.launch(headless=bool(cfg.get("headless", True)))
+    browser = playwright_instance.chromium.launch(
+        headless=bool(cfg.get("headless", True)),
+        args=["--start-maximized"],
+    )
     yield browser
     browser.close()
 
@@ -43,7 +46,7 @@ def page(browser: Browser, project_config: dict[str, Any]) -> Page:
     default_timeout_ms = int(cfg.get("default_timeout", 10)) * 1000
     navigation_timeout_ms = int(cfg.get("navigation_timeout", 30)) * 1000
 
-    context = browser.new_context(viewport={"width": 1280, "height": 800})
+    context = browser.new_context(no_viewport=True)
     page = context.new_page()
     page.set_default_timeout(default_timeout_ms)
     page.set_default_navigation_timeout(navigation_timeout_ms)
