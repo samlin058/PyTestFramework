@@ -1,8 +1,0 @@
-services:
-  api-tests:
-    build: .
-    environment:
-      ENV: test
-    volumes:
-      - ./reports:/app/reports
-    command: ["pytest", "-m", "api", "--alluredir=reports/allure-results", "--clean-alluredir"]

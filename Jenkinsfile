@@ -50,9 +50,13 @@ pipeline {
 
     stage('Notify') {
       steps {
+        echo 'Detailed results are sent by pytest_terminal_summary when NOTIFY_WEBHOOK is set.'
         sh '''
           . .venv/bin/activate
-          python -c "from report_ci.notify.webhook import send_webhook; send_webhook('PyTestFramework', 'Jenkins pipeline finished')"
+          # Pipeline-level fallback (useful if Test stage aborted before pytest summary).
+          if [ -n "${NOTIFY_WEBHOOK:-}" ] && [ "${NOTIFY_PIPELINE:-0}" = "1" ]; then
+            python -c "from service.report_ci.notify import notify_from_env; notify_from_env('PyTestFramework', 'Jenkins pipeline finished: ${BUILD_URL:-}')"
+          fi
         '''
       }
     }
@@ -64,3 +68,4 @@ pipeline {
     }
   }
 }
+

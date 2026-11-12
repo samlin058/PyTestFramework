@@ -1,6 +1,0 @@
-cases:
-  - name: ui_login_success
-    username: admin
-    password: 123456
-    expect_success: true
-

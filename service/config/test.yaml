@@ -1,0 +1,53 @@
+# 环境配置
+env: test
+
+# 默认配置
+defaults:
+  timeout: 10
+  ui:
+    headless: false
+    default_timeout: 10
+    navigation_timeout: 30 
+
+# 全局默认通知配置
+notify:
+  enabled: true
+  title: PyTestFramework
+  msgtype: markdown        # markdown | text
+  mention_all_on_fail: false
+  max_failed_list: 10
+  report_url: ""           # Allure / 构建报告链接；也可用 NOTIFY_REPORT_URL
+  # 同一项目可同时推企微 + 钉钉（配了 webhook 的通道都会发）
+  wecom:
+    webhook: ""            # 或 NOTIFY_WECOM_WEBHOOK
+  dingtalk:
+    webhook: ""            # 或 NOTIFY_DINGTALK_WEBHOOK
+    secret: ""             # 钉钉加签；或 NOTIFY_DINGTALK_SECRET
+
+# 项目配置
+projects:
+  AITF:
+    # API 配置
+    api_base_url: http://127.0.0.1:8000/
+    # UI 配置
+    ui:
+      base_url: http://127.0.0.1:5173/
+    # 数据库配置
+    db:
+      enabled: false
+      host: 127.0.0.1
+      port: 3306
+      user: root
+      password: ""
+      database: aitf
+    # 项目全局变量配置
+    global_var:
+      user: admin
+      password: 123456
+    # 项目通知配置（未就绪的通道请留空，避免发到无效 URL）
+    notify:
+      wecom:
+        webhook: ""
+#      dingtalk:
+#        webhook: "https://oapi.dingtalk.com/robot/send?access_token=3a97895b421c4feead313c2f4e5497037e70fa31439c60baf724ed9e71a9be74"
+#        secret: "SEC2b1b97b713f82354452c65fb40ba93cbe77ee8dde8d13a88cbd055d7ecb0509f"

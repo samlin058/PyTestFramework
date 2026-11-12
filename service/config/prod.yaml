@@ -1,0 +1,37 @@
+env: prod
+defaults:
+  timeout: 15
+  ui:
+    headless: true
+    default_timeout: 10
+    navigation_timeout: 30
+notify:
+  enabled: true
+  title: PyTestFramework
+  msgtype: markdown
+  mention_all_on_fail: false
+  max_failed_list: 10
+  report_url: ""
+  wecom:
+    webhook: ""
+  dingtalk:
+    webhook: ""
+    secret: ""
+projects:
+  AITF:
+    api_base_url: https://reqres.in
+    ui:
+      base_url: ""
+    db:
+      enabled: false
+      host: 127.0.0.1
+      port: 3306
+      user: root
+      password: ""
+      database: aitf
+    # notify:
+    #   wecom:
+    #     webhook: ""
+    #   dingtalk:
+    #     webhook: ""
+    #     secret: ""

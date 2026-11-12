@@ -1,0 +1,6 @@
+cases:
+  - name: ui_login_success
+    username: admin
+    password: 123456
+    expect: "http://127.0.0.1:5173/"
+

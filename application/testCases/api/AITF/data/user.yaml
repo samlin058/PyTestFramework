@@ -1,0 +1,18 @@
+cases:
+  - name: create_user_success
+    account: {{generate_string(prefix='user_')}}
+    username: {{generate_chinese_name}}
+    email: {{generate_email}}
+    password: 123456
+    assert:
+        status_code: 201
+
+
+  - name: create_user_failed
+    account: {{generate_string(prefix='user_')}}
+    username: {{generate_chinese_name}}
+    email: {{generate_email}}
+    password: 
+    assert:
+        status_code: 400
+
